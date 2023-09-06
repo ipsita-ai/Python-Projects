@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NER</title>
+</head>
+<body style="background:#e5eeec;text-align:center">
+
+  <form action="/perform_ner" method="post">
+      <label><strong>Type your text here</strong></label><br>
+      <br>
+      <textarea rows="10" cols="50" name="ner_text"></textarea><br>
+      <br>
+      <input type="submit" value="Perform NER">
+  </form>
+
+  {% if response %}
+    {% for i in response['entities']: %}
+        <p>{{ i['name'] + " ==> " + i['category'] }}</p>
+    {% endfor %}
+  {% endif %}
+
+</body>
+</html>
